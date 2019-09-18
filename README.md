@@ -1,2 +1,2 @@
 # PythonProjects
-learning python
+learning python and write some code
