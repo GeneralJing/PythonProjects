@@ -20,7 +20,7 @@ cv2.waitKey(0)
 
 thresh = cv2.threshold(gray, 225, 255, cv2.THRESH_BINARY_INV)[1]
 
-cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERAL, cv2.CHAIN_APPROX_SIMPLE)
+cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 cnts = imutils.grab_contours(cnts)
 output = image.copy()
 
@@ -34,4 +34,17 @@ cv2.putText(output, text, (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (240, 0, 159)
 cv2.imshow("Contours", output)
 cv2.waitKey(0)
 
+mask = thresh.copy()
+mask = cv2.erode(mask, None, iterations=5)
+cv2.imshow("Eroded", mask)
+cv2.waitKey(0)
 
+mask = thresh.copy()
+mask = cv2.dilate(mask, None, iterations=5)
+cv2.imshow("Dilated", mask)
+cv2.waitKey(0)
+
+mask = thresh.copy()
+output = cv2.bitwise_and(image, image, mask=mask)
+cv2.imshow("Output", output)
+cv2.waitKey(0)
