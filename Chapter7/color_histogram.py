@@ -34,7 +34,7 @@ ax.set_title("2D color histogram for g and b")
 plt.colorbar(p)
 
 ax = fig.add_subplot(132)
-hist = cv2.calcHist([chans[1], chans[2]], [0, 1], None, [32, 32], [0, 256, 0, 256])
+hist = cv2.calcHist([chans[1], chans[2]], [0, 1], None, [8, 8], [0, 256, 0, 256])
 p = ax.imshow(hist, interpolation="nearest")
 ax.set_title("2D color histogram for g and r")
 plt.colorbar(p)
