@@ -7,8 +7,8 @@ ap = argparse.ArgumentParser()
 ap.add_argument("-v", "--video", required=True, help="path to the (optional) video file")
 args = vars(ap.parse_args())
 
-blueLower = np.array([100, 67, 0], dtype="uint8")
-blueUpper = np.array([255, 128, 50], dtype="uint8")
+blueLower = np.array([100, 67, 0], dtype = "uint8")
+blueUpper = np.array([255, 128, 50], dtype = "uint8")
 
 camera = cv2.VideoCapture(args["video"])
 
@@ -30,7 +30,7 @@ while True:
     cv2.imshow("Binary", blue)
 
     time.sleep(0.025)
-    if cv2.waitKey(1) & 0xFF==ord("q"):
+    if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 
 camera.release()

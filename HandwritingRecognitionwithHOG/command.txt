@@ -1,0 +1,2 @@
+Python train.py --dataset data/digits.csv --model models/svm.cpickle
+python classify.py --model models/svm.cpickle --image images/cellphone.png
